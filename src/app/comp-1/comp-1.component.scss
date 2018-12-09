@@ -1,0 +1,20 @@
+.comp1 {
+    padding: 30px;
+    background-color: #60d9ff;
+    .home-img {
+        text-align: center;
+        img {
+            width: 150px;
+        }
+        .title {
+            font-family: serif;
+        }
+        .btn {
+            background-color: yellow;
+            border-radius: 20px;
+            margin-top: 20px;
+            padding: 12px;
+        }
+    }
+}
+

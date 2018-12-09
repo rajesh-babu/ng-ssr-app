@@ -1,0 +1,29 @@
+body{
+    margin: 0px;
+    header {
+        .menu {
+            background-color: #3a3a3a;
+            ul{
+                list-style-type: none;
+                margin: 0px;
+                li {
+                    display: inline-block;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0px 15px;
+                    a {
+                        color: #FFF;
+                        text-decoration-line: none;
+    
+                    }
+                }
+                & .selected {
+                    background-color: #585858;
+                }
+            }
+        }
+    }
+}
+
+
+
