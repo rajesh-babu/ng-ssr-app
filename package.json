@@ -4,22 +4,16 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "./node_modules/.bin/ng serve",
-    "build:client-app:prod": "./node_modules/.bin/ng build --prod",
-    "build:server-app:prod": "./node_modules/.bin/ng run angular-universal-course:server",
-    "build-all": "./node_modules/.bin/npm-run-all build:client-app:prod build:server-app:prod build:functions",
+    "start": "nodemon app.js | ./node_modules/.bin/ng serve",
+    "build-all": "./node_modules/.bin/npm-run-all build:client-app:prod build:server-app:prod",
+    "start:express-server": "nodemon app.js | ./node_modules/.bin/ts-node ./server.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prerender": "./node_modules/.bin/ts-node ./prerender.ts",
     "prerender:debug": "./node_modules/.bin/ts-node --inspect ./prerender.ts",
-    "start:express-server": "./node_modules/.bin/ts-node ./server.ts",
-    "build:functions": "cd functions && npm run build",
-    "move-index": "mv ./dist/index.html ./functions/lib/index-server.html",
-    "firebase:serve": "firebase serve --only hosting,functions",
-    "deploy": "firebase deploy",
-    "start:local": "npm-run-all build-all move-index firebase:serve",
-    "build-and-deploy:prod": "npm-run-all build-all move-index deploy"
+    "build:client-app:prod": "./node_modules/.bin/ng build --prod",
+    "build:server-app:prod": "./node_modules/.bin/ng run angular-universal-course:server"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +22,7 @@
     "@angular/common": "7.0.0",
     "@angular/compiler": "7.0.0",
     "@angular/core": "7.0.0",
+    "@angular/elements": "^7.0.2",
     "@angular/forms": "7.0.0",
     "@angular/http": "7.0.0",
     "@angular/material": "^7.0.0",
@@ -45,9 +40,11 @@
     "moment": "^2.22.2",
     "rxjs": "6.3.3",
     "rxjs-compat": "^6.0.0-rc.0",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "document-register-element": "^1.7.2"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.10.0",
     "@angular/cli": "^7.0.0",
     "@angular/compiler-cli": "7.0.0",
     "@angular/language-service": "7.0.0",
@@ -65,11 +62,11 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "nodemon": "^1.18.6",
     "npm-run-all": "^4.1.2",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~3.1.3",
-    "@angular-devkit/build-angular": "~0.10.0"
+    "typescript": "~3.1.3"
   }
 }

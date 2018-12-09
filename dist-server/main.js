@@ -102,8 +102,8 @@
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var RouterModuleNgFactory = i0.ɵcmf(i1.RouterModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [ɵEmptyOutletComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(1073742336, i1.RouterModule, i1.RouterModule, [[2, i1.ɵangular_packages_router_router_a], [2, i1.Router]])]); });
 exports.RouterModuleNgFactory = RouterModuleNgFactory;
 var styles_ɵEmptyOutletComponent = [];
@@ -129,24 +129,21 @@ exports.ɵEmptyOutletComponentNgFactory = ɵEmptyOutletComponentNgFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var home_component_1 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-var main_root_component_1 = __webpack_require__(/*! ./main-root/main-root.component */ "./src/app/main-root/main-root.component.ts");
-var routes = [
+const router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const comp_1_component_1 = __webpack_require__(/*! ./comp-1/comp-1.component */ "./src/app/comp-1/comp-1.component.ts");
+const main_root_component_1 = __webpack_require__(/*! ./main-root/main-root.component */ "./src/app/main-root/main-root.component.ts");
+const routes = [
     {
         path: "home",
-        component: home_component_1.HomeComponent
+        component: comp_1_component_1.Comp1
     },
     {
         path: "**",
         component: main_root_component_1.MainRootComponent
     }
 ];
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
-    }
-    return AppRoutingModule;
-}());
+class AppRoutingModule {
+}
 exports.AppRoutingModule = AppRoutingModule;
 /*
 
@@ -200,10 +197,10 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./app.component.css.shim.ngstyle */ "./src/app/app.component.css.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i3 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+const i0 = __webpack_require__(/*! ./app.component.css.shim.ngstyle */ "./src/app/app.component.css.shim.ngstyle.js");
+const i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const i3 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var styles_AppComponent = [i0.styles];
 var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppComponent, data: {} });
 exports.RenderType_AppComponent = RenderType_AppComponent;
@@ -227,11 +224,8 @@ exports.AppComponentNgFactory = AppComponentNgFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-    }
-    return AppComponent;
-}());
+class AppComponent {
+}
 exports.AppComponent = AppComponent;
 
 
@@ -247,11 +241,21 @@ exports.AppComponent = AppComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AppModule = /** @class */ (function () {
-    function AppModule() {
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const comp_1_component_1 = __webpack_require__(/*! ./comp-1/comp-1.component */ "./src/app/comp-1/comp-1.component.ts");
+const common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+class AppModule {
+    constructor(injector, platformId) {
+        this.injector = injector;
+        if (common_1.isPlatformBrowser(platformId)) {
+            const { createCustomElement } = __webpack_require__(/*! @angular/elements */ "@angular/elements");
+            // you can use createCustomElement here
+            const homeElement = createCustomElement(comp_1_component_1.Comp1, { injector });
+            customElements.define('home-comp', homeElement);
+        }
     }
-    return AppModule;
-}());
+    ngDoBootstrap() { }
+}
 exports.AppModule = AppModule;
 
 
@@ -273,29 +277,31 @@ exports.AppModule = AppModule;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i1 = __webpack_require__(/*! ./app.server.module */ "./src/app/app.server.module.ts");
-var i2 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-var i3 = __webpack_require__(/*! ../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
-var i4 = __webpack_require__(/*! ./home/home.component.ngfactory */ "./src/app/home/home.component.ngfactory.js");
-var i5 = __webpack_require__(/*! ./main-root/main-root.component.ngfactory */ "./src/app/main-root/main-root.component.ngfactory.js");
-var i6 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
-var i7 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i8 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
-var i9 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
-var i10 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
-var i11 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
-var i12 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
-var i13 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i14 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i15 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i16 = __webpack_require__(/*! ./services/cms.services */ "./src/app/services/cms.services.ts");
-var i17 = __webpack_require__(/*! @angular/http */ "@angular/http");
-var i18 = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-var i19 = __webpack_require__(/*! ./main-root/main-root.component */ "./src/app/main-root/main-root.component.ts");
-var i20 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-var i21 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.HomeComponentNgFactory, i5.MainRootComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.FormBuilder, i14.FormBuilder, []), i0.ɵmpd(4608, i14.ɵangular_packages_forms_forms_j, i14.ɵangular_packages_forms_forms_j, []), i0.ɵmpd(4608, i15.HttpXsrfTokenExtractor, i15.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i15.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i15.ɵangular_packages_common_http_http_h, i15.ɵangular_packages_common_http_http_h, [i15.HttpXsrfTokenExtractor, i15.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i15.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i15.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i15.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i15.HttpXhrBackend, i15.HttpXhrBackend, [i15.XhrFactory]), i0.ɵmpd(6144, i15.HttpBackend, null, [i15.HttpXhrBackend]), i0.ɵmpd(5120, i15.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i15.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i15.HttpClient, i15.HttpClient, [i15.HttpHandler]), i0.ɵmpd(4608, i15.ɵangular_packages_common_http_http_d, i15.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i16.CMSService, i16.CMSService, [i15.HttpClient]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "serverApp", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i11.BrowserAnimationsModule, i11.BrowserAnimationsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i0.SystemJsNgModuleLoader, [i0.Compiler, [2, i0.SystemJsNgModuleLoaderConfig]]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "home", component: i18.HomeComponent }, { path: "**", component: i19.MainRootComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i20.AppRoutingModule, i20.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.ɵangular_packages_forms_forms_bc, i14.ɵangular_packages_forms_forms_bc, []), i0.ɵmpd(1073742336, i14.ReactiveFormsModule, i14.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i15.HttpClientXsrfModule, i15.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i15.HttpClientModule, i15.HttpClientModule, []), i0.ɵmpd(1073742336, i21.AppModule, i21.AppModule, []), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", []), i0.ɵmpd(256, i15.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i15.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", [])]); });
+const i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i1 = __webpack_require__(/*! ./app.server.module */ "./src/app/app.server.module.ts");
+const i2 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+const i3 = __webpack_require__(/*! ../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
+const i4 = __webpack_require__(/*! ./comp-1/comp-1.component.ngfactory */ "./src/app/comp-1/comp-1.component.ngfactory.js");
+const i5 = __webpack_require__(/*! ./main-root/main-root.component.ngfactory */ "./src/app/main-root/main-root.component.ngfactory.js");
+const i6 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
+const i7 = __webpack_require__(/*! ./comp-2/comp-2.component.ngfactory */ "./src/app/comp-2/comp-2.component.ngfactory.js");
+const i8 = __webpack_require__(/*! ./html-content/html-content.comp.ngfactory */ "./src/app/html-content/html-content.comp.ngfactory.js");
+const i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
+const i10 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+const i11 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
+const i12 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
+const i13 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+const i14 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
+const i15 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const i16 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+const i17 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+const i18 = __webpack_require__(/*! ./services/cms.services */ "./src/app/services/cms.services.ts");
+const i19 = __webpack_require__(/*! @angular/http */ "@angular/http");
+const i20 = __webpack_require__(/*! ./comp-1/comp-1.component */ "./src/app/comp-1/comp-1.component.ts");
+const i21 = __webpack_require__(/*! ./main-root/main-root.component */ "./src/app/main-root/main-root.component.ts");
+const i22 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+const i23 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.Comp1NgFactory, i5.MainRootComponentNgFactory, i6.AppComponentNgFactory, i7.Comp2NgFactory, i8.HtmlContentComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i9.NgLocalization, i9.NgLocaleLocalization, [i0.LOCALE_ID, [2, i9.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i10.DomSanitizer, i10.ɵDomSanitizerImpl, [i9.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i10.DomSanitizer]), i0.ɵmpd(4608, i10.HAMMER_GESTURE_CONFIG, i10.HammerGestureConfig, []), i0.ɵmpd(5120, i10.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i10.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i10.ɵKeyEventsPlugin(p1_0), new i10.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i11.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i9.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i9.DOCUMENT, i9.DOCUMENT, i10.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i10.HAMMER_LOADER], i10.DOCUMENT]), i0.ɵmpd(4608, i10.EventManager, i10.EventManager, [i10.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i10.ɵDomSharedStylesHost, i10.ɵDomSharedStylesHost, [i9.DOCUMENT]), i0.ɵmpd(4608, i10.ɵDomRendererFactory2, i10.ɵDomRendererFactory2, [i10.EventManager, i10.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i11.ɵangular_packages_platform_server_platform_server_c, i11.ɵangular_packages_platform_server_platform_server_c, [i10.DOCUMENT, [2, i10.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i10.ɵSharedStylesHost, null, [i11.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i11.ɵServerRendererFactory2, i11.ɵServerRendererFactory2, [i10.EventManager, i0.NgZone, i10.DOCUMENT, i10.ɵSharedStylesHost]), i0.ɵmpd(4608, i12.AnimationDriver, i12.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i12.ɵAnimationStyleNormalizer, i13.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i12.ɵAnimationEngine, i13.ɵangular_packages_platform_browser_animations_animations_a, [i9.DOCUMENT, i12.AnimationDriver, i12.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i11.ɵangular_packages_platform_server_platform_server_a, [i11.ɵServerRendererFactory2, i12.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i14.AnimationBuilder, i13.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i10.DOCUMENT]), i0.ɵmpd(5120, i15.ActivatedRoute, i15.ɵangular_packages_router_router_g, [i15.Router]), i0.ɵmpd(4608, i15.NoPreloading, i15.NoPreloading, []), i0.ɵmpd(6144, i15.PreloadingStrategy, null, [i15.NoPreloading]), i0.ɵmpd(135680, i15.RouterPreloader, i15.RouterPreloader, [i15.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i15.PreloadingStrategy]), i0.ɵmpd(4608, i15.PreloadAllModules, i15.PreloadAllModules, []), i0.ɵmpd(4608, i9.ViewportScroller, i9.ɵNullViewportScroller, []), i0.ɵmpd(5120, i15.ɵangular_packages_router_router_n, i15.ɵangular_packages_router_router_c, [i15.Router, i9.ViewportScroller, i15.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i15.ROUTER_INITIALIZER, i15.ɵangular_packages_router_router_j, [i15.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i15.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i16.FormBuilder, i16.FormBuilder, []), i0.ɵmpd(4608, i16.ɵangular_packages_forms_forms_j, i16.ɵangular_packages_forms_forms_j, []), i0.ɵmpd(4608, i17.HttpXsrfTokenExtractor, i17.ɵangular_packages_common_http_http_g, [i9.DOCUMENT, i0.PLATFORM_ID, i17.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i17.ɵangular_packages_common_http_http_h, i17.ɵangular_packages_common_http_http_h, [i17.HttpXsrfTokenExtractor, i17.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i17.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i17.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i17.XhrFactory, i11.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.HttpXhrBackend, i17.HttpXhrBackend, [i17.XhrFactory]), i0.ɵmpd(6144, i17.HttpBackend, null, [i17.HttpXhrBackend]), i0.ɵmpd(5120, i17.HttpHandler, i11.ɵangular_packages_platform_server_platform_server_h, [i17.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i17.HttpClient, i17.HttpClient, [i17.HttpHandler]), i0.ɵmpd(4608, i17.ɵangular_packages_common_http_http_d, i17.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i10.TransferState, i10.TransferState, []), i0.ɵmpd(4608, i18.CMSService, i18.CMSService, [i17.HttpClient]), i0.ɵmpd(4608, i19.BrowserXhr, i11.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i19.ResponseOptions, i19.BaseResponseOptions, []), i0.ɵmpd(4608, i19.XSRFStrategy, i11.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i19.XHRBackend, i19.XHRBackend, [i19.BrowserXhr, i19.ResponseOptions, i19.XSRFStrategy]), i0.ɵmpd(4608, i19.RequestOptions, i19.BaseRequestOptions, []), i0.ɵmpd(5120, i19.Http, i11.ɵangular_packages_platform_server_platform_server_g, [i19.XHRBackend, i19.RequestOptions]), i0.ɵmpd(5120, i11.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i11.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i10.DOCUMENT, i0.APP_ID, i10.TransferState]), i0.ɵmpd(1073742336, i9.CommonModule, i9.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i10.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i15.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i15.ɵangular_packages_router_router_h, i15.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "serverApp", []), i0.ɵmpd(2048, i10.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i10.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i15.ɵangular_packages_router_router_i(p1_0), i10.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i15.ɵangular_packages_router_router_h, i10.ɵTRANSITION_ID, i9.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i10.BrowserModule, i10.BrowserModule, [[3, i10.BrowserModule]]), i0.ɵmpd(1073742336, i13.BrowserAnimationsModule, i13.BrowserAnimationsModule, []), i0.ɵmpd(1024, i15.ɵangular_packages_router_router_a, i15.ɵangular_packages_router_router_e, [[3, i15.Router]]), i0.ɵmpd(512, i15.UrlSerializer, i15.DefaultUrlSerializer, []), i0.ɵmpd(512, i15.ChildrenOutletContexts, i15.ChildrenOutletContexts, []), i0.ɵmpd(256, i15.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i9.LocationStrategy, i15.ɵangular_packages_router_router_d, [i9.PlatformLocation, [2, i9.APP_BASE_HREF], i15.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i9.Location, i9.Location, [i9.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i0.SystemJsNgModuleLoader, [i0.Compiler, [2, i0.SystemJsNgModuleLoaderConfig]]), i0.ɵmpd(1024, i15.ROUTES, function () { return [[{ path: "home", component: i20.Comp1 }, { path: "**", component: i21.MainRootComponent }]]; }, []), i0.ɵmpd(1024, i15.Router, i15.ɵangular_packages_router_router_f, [i0.ApplicationRef, i15.UrlSerializer, i15.ChildrenOutletContexts, i9.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i15.ROUTES, i15.ROUTER_CONFIGURATION, [2, i15.UrlHandlingStrategy], [2, i15.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i15.RouterModule, i15.RouterModule, [[2, i15.ɵangular_packages_router_router_a], [2, i15.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i16.ɵangular_packages_forms_forms_bc, i16.ɵangular_packages_forms_forms_bc, []), i0.ɵmpd(1073742336, i16.ReactiveFormsModule, i16.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i17.HttpClientXsrfModule, i17.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i17.HttpClientModule, i17.HttpClientModule, []), i0.ɵmpd(1073742336, i10.BrowserTransferStateModule, i10.BrowserTransferStateModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.Injector, i0.PLATFORM_ID]), i0.ɵmpd(1073742336, i19.HttpModule, i19.HttpModule, []), i0.ɵmpd(1073742336, i13.NoopAnimationsModule, i13.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i11.ServerModule, i11.ServerModule, []), i0.ɵmpd(1073742336, i11.ServerTransferStateModule, i11.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, [i0.Injector, i0.PLATFORM_ID]), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i13.ANIMATION_MODULE_TYPE, "NoopAnimations", []), i0.ɵmpd(256, i17.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i17.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -311,20 +317,29 @@ exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AppServerModule = /** @class */ (function () {
-    function AppServerModule() {
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+class AppServerModule {
+    constructor(injector, platformId) {
+        this.injector = injector;
+        if (common_1.isPlatformBrowser(platformId)) {
+            // const { createCustomElement } = require('@angular/elements');
+            // you can use createCustomElement here
+            // const homeElement = createCustomElement(HomeComponent, { injector });
+            //customElements.define('home-comp', homeElement);
+        }
     }
-    return AppServerModule;
-}());
+    ngDoBootstrap() { }
+}
 exports.AppServerModule = AppServerModule;
 
 
 /***/ }),
 
-/***/ "./src/app/home/home.component.css.shim.ngstyle.js":
-/*!*********************************************************!*\
-  !*** ./src/app/home/home.component.css.shim.ngstyle.js ***!
-  \*********************************************************/
+/***/ "./src/app/comp-1/comp-1.component.ngfactory.js":
+/*!******************************************************!*\
+  !*** ./src/app/comp-1/comp-1.component.ngfactory.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -337,16 +352,125 @@ exports.AppServerModule = AppServerModule;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"];
+const i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i1 = __webpack_require__(/*! ./comp-1.component */ "./src/app/comp-1/comp-1.component.ts");
+var styles_Comp1 = [];
+var RenderType_Comp1 = i0.ɵcrt({ encapsulation: 2, styles: styles_Comp1, data: {} });
+exports.RenderType_Comp1 = RenderType_Comp1;
+function View_Comp1_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 8, "div", [["class", "comp1"]], null, null, null, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 7, "div", [["class", "home-img"]], null, null, null, null, null)), (_l()(), i0.ɵeld(2, 0, null, null, 0, "img", [["alt", "Home"]], [[8, "src", 4]], null, null, null, null)), (_l()(), i0.ɵeld(3, 0, null, null, 1, "h1", [["class", "title"]], null, null, null, null, null)), (_l()(), i0.ɵted(4, null, ["", ""])), (_l()(), i0.ɵeld(5, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i0.ɵted(6, null, ["", ""])), (_l()(), i0.ɵeld(7, 0, null, null, 1, "button", [["class", "btn"]], null, null, null, null, null)), (_l()(), i0.ɵted(8, null, ["", ""]))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = i0.ɵinlineInterpolate(1, "", ("../../assets" + _co.inputData.titleimage), ""); _ck(_v, 2, 0, currVal_0); var currVal_1 = _co.inputData.title; _ck(_v, 4, 0, currVal_1); var currVal_2 = _co.inputData.desc; _ck(_v, 6, 0, currVal_2); var currVal_3 = _co.inputData.buttontext; _ck(_v, 8, 0, currVal_3); }); }
+exports.View_Comp1_0 = View_Comp1_0;
+function View_Comp1_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "comp-1", [], null, null, null, View_Comp1_0, RenderType_Comp1)), i0.ɵdid(1, 114688, null, 0, i1.Comp1, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_Comp1_Host_0 = View_Comp1_Host_0;
+var Comp1NgFactory = i0.ɵccf("comp-1", i1.Comp1, View_Comp1_Host_0, {}, {}, []);
+exports.Comp1NgFactory = Comp1NgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/comp-1/comp-1.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/comp-1/comp-1.component.ts ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+class Comp1 {
+    constructor() {
+    }
+    ngOnInit() {
+    }
+}
+exports.Comp1 = Comp1;
+
+
+/***/ }),
+
+/***/ "./src/app/comp-2/comp-2.component.ngfactory.js":
+/*!******************************************************!*\
+  !*** ./src/app/comp-2/comp-2.component.ngfactory.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+const i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+const i2 = __webpack_require__(/*! ./comp-2.component */ "./src/app/comp-2/comp-2.component.ts");
+var styles_Comp2 = [];
+var RenderType_Comp2 = i0.ɵcrt({ encapsulation: 2, styles: styles_Comp2, data: {} });
+exports.RenderType_Comp2 = RenderType_Comp2;
+function View_Comp2_1(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 4, "div", [["class", "sub-section"]], null, null, null, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i0.ɵted(2, null, ["", ""])), (_l()(), i0.ɵeld(3, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i0.ɵted(4, null, ["", ""]))], null, function (_ck, _v) { var currVal_0 = _v.context.$implicit.title; _ck(_v, 2, 0, currVal_0); var currVal_1 = _v.context.$implicit.desc; _ck(_v, 4, 0, currVal_1); }); }
+function View_Comp2_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 6, "div", [["class", "comp2"]], null, null, null, null, null)), (_l()(), i0.ɵeld(1, 0, null, null, 5, "div", [], null, null, null, null, null)), (_l()(), i0.ɵeld(2, 0, null, null, 1, "h1", [["class", "title"]], null, null, null, null, null)), (_l()(), i0.ɵted(3, null, ["", ""])), (_l()(), i0.ɵeld(4, 0, null, null, 2, "div", [], null, null, null, null, null)), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_Comp2_1)), i0.ɵdid(6, 278528, null, 0, i1.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.inputData.columnsArr; _ck(_v, 6, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.inputData.title; _ck(_v, 3, 0, currVal_0); }); }
+exports.View_Comp2_0 = View_Comp2_0;
+function View_Comp2_Host_0(_l) { return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, "comp-2", [], null, null, null, View_Comp2_0, RenderType_Comp2)), i0.ɵdid(1, 114688, null, 0, i2.Comp2, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_Comp2_Host_0 = View_Comp2_Host_0;
+var Comp2NgFactory = i0.ɵccf("comp-2", i2.Comp2, View_Comp2_Host_0, {}, {}, []);
+exports.Comp2NgFactory = Comp2NgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/comp-2/comp-2.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/comp-2/comp-2.component.ts ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+class Comp2 {
+    constructor() {
+    }
+    ngOnInit() {
+        //debugger;
+    }
+}
+exports.Comp2 = Comp2;
+
+
+/***/ }),
+
+/***/ "./src/app/html-content/html-content.comp.css.shim.ngstyle.js":
+/*!********************************************************************!*\
+  !*** ./src/app/html-content/html-content.comp.css.shim.ngstyle.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2h0bWwtY29udGVudC9odG1sLWNvbnRlbnQuY29tcC5jc3MifQ== */"];
 exports.styles = styles;
 
 
 /***/ }),
 
-/***/ "./src/app/home/home.component.ngfactory.js":
-/*!**************************************************!*\
-  !*** ./src/app/home/home.component.ngfactory.js ***!
-  \**************************************************/
+/***/ "./src/app/html-content/html-content.comp.ngfactory.js":
+/*!*************************************************************!*\
+  !*** ./src/app/html-content/html-content.comp.ngfactory.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -359,41 +483,41 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./home.component.css.shim.ngstyle */ "./src/app/home/home.component.css.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
-var styles_HomeComponent = [i0.styles];
-var RenderType_HomeComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HomeComponent, data: {} });
-exports.RenderType_HomeComponent = RenderType_HomeComponent;
-function View_HomeComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" Home Component "]))], null, null); }
-exports.View_HomeComponent_0 = View_HomeComponent_0;
-function View_HomeComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "home-comp", [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i2.HomeComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_HomeComponent_Host_0 = View_HomeComponent_Host_0;
-var HomeComponentNgFactory = i1.ɵccf("home-comp", i2.HomeComponent, View_HomeComponent_Host_0, {}, {}, []);
-exports.HomeComponentNgFactory = HomeComponentNgFactory;
+const i0 = __webpack_require__(/*! ./html-content.comp.css.shim.ngstyle */ "./src/app/html-content/html-content.comp.css.shim.ngstyle.js");
+const i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i2 = __webpack_require__(/*! ./html-content.comp */ "./src/app/html-content/html-content.comp.ts");
+var styles_HtmlContentComponent = [i0.styles];
+var RenderType_HtmlContentComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HtmlContentComponent, data: {} });
+exports.RenderType_HtmlContentComponent = RenderType_HtmlContentComponent;
+function View_HtmlContentComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, "div", [], [[8, "innerHTML", 1]], null, null, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.txtContent; _ck(_v, 0, 0, currVal_0); }); }
+exports.View_HtmlContentComponent_0 = View_HtmlContentComponent_0;
+function View_HtmlContentComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "html-content-comp", [], null, null, null, View_HtmlContentComponent_0, RenderType_HtmlContentComponent)), i1.ɵdid(1, 114688, null, 0, i2.HtmlContentComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_HtmlContentComponent_Host_0 = View_HtmlContentComponent_Host_0;
+var HtmlContentComponentNgFactory = i1.ɵccf("html-content-comp", i2.HtmlContentComponent, View_HtmlContentComponent_Host_0, { inputData: "inputData" }, {}, []);
+exports.HtmlContentComponentNgFactory = HtmlContentComponentNgFactory;
 
 
 /***/ }),
 
-/***/ "./src/app/home/home.component.ts":
-/*!****************************************!*\
-  !*** ./src/app/home/home.component.ts ***!
-  \****************************************/
+/***/ "./src/app/html-content/html-content.comp.ts":
+/*!***************************************************!*\
+  !*** ./src/app/html-content/html-content.comp.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+class HtmlContentComponent {
+    constructor() {
     }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
-    return HomeComponent;
-}());
-exports.HomeComponent = HomeComponent;
+    ngOnInit() {
+        this.txtContent = this.inputData.tvalue;
+    }
+}
+exports.HtmlContentComponent = HtmlContentComponent;
 
 
 /***/ }),
@@ -436,24 +560,20 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./main-root.component.css.shim.ngstyle */ "./src/app/main-root/main-root.component.css.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ../home/home.component.ngfactory */ "./src/app/home/home.component.ngfactory.js");
-var i3 = __webpack_require__(/*! ../home/home.component */ "./src/app/home/home.component.ts");
-var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i5 = __webpack_require__(/*! ./main-root.component */ "./src/app/main-root/main-root.component.ts");
-var i6 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i7 = __webpack_require__(/*! ../services/cms.services */ "./src/app/services/cms.services.ts");
+const i0 = __webpack_require__(/*! ./main-root.component.css.shim.ngstyle */ "./src/app/main-root/main-root.component.css.shim.ngstyle.js");
+const i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const i2 = __webpack_require__(/*! ./main-root.component */ "./src/app/main-root/main-root.component.ts");
+const i3 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const i4 = __webpack_require__(/*! ../services/cms.services */ "./src/app/services/cms.services.ts");
+const i5 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
 var styles_MainRootComponent = [i0.styles];
 var RenderType_MainRootComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MainRootComponent, data: {} });
 exports.RenderType_MainRootComponent = RenderType_MainRootComponent;
-function View_MainRootComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "home-comp", [], null, null, null, i2.View_HomeComponent_0, i2.RenderType_HomeComponent)), i1.ɵdid(1, 114688, null, 0, i3.HomeComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-function View_MainRootComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, null, null, null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainRootComponent_2)), i1.ɵdid(2, 16384, null, 0, i4.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(3, 0, null, null, 1, null, null, null, null, null, null, null)), (_l()(), i1.ɵted(4, null, [" ", " "]))], function (_ck, _v) { var currVal_0 = (_v.context.$implicit.compType === "home"); _ck(_v, 2, 0, currVal_0); }, function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.test; _ck(_v, 4, 0, currVal_1); }); }
-function View_MainRootComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainRootComponent_1)), i1.ɵdid(1, 278528, null, 0, i4.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.compArr; _ck(_v, 1, 0, currVal_0); }, null); }
+function View_MainRootComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { entry: 0 }), (_l()(), i1.ɵeld(1, 16777216, [[1, 3], ["messagecontainer", 1]], null, 1, "template", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["\n"]))], null, null); }
 exports.View_MainRootComponent_0 = View_MainRootComponent_0;
-function View_MainRootComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "main-root", [], null, null, null, View_MainRootComponent_0, RenderType_MainRootComponent)), i1.ɵdid(1, 114688, null, 0, i5.MainRootComponent, [i6.Router, i7.CMSService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_MainRootComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "main-root", [], null, null, null, View_MainRootComponent_0, RenderType_MainRootComponent)), i1.ɵdid(1, 114688, null, 0, i2.MainRootComponent, [i3.Router, i4.CMSService, i5.Title, i1.ComponentFactoryResolver, i5.TransferState, i1.PLATFORM_ID], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MainRootComponent_Host_0 = View_MainRootComponent_Host_0;
-var MainRootComponentNgFactory = i1.ɵccf("main-root", i5.MainRootComponent, View_MainRootComponent_Host_0, {}, {}, []);
+var MainRootComponentNgFactory = i1.ɵccf("main-root", i2.MainRootComponent, View_MainRootComponent_Host_0, {}, {}, []);
 exports.MainRootComponentNgFactory = MainRootComponentNgFactory;
 
 
@@ -469,25 +589,76 @@ exports.MainRootComponentNgFactory = MainRootComponentNgFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var cms_services_1 = __webpack_require__(/*! ../services/cms.services */ "./src/app/services/cms.services.ts");
-var MainRootComponent = /** @class */ (function () {
-    function MainRootComponent(router, _CMSService) {
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+const common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
+const platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+const comp_1_component_1 = __webpack_require__(/*! ../comp-1/comp-1.component */ "./src/app/comp-1/comp-1.component.ts");
+const comp_2_component_1 = __webpack_require__(/*! ../comp-2/comp-2.component */ "./src/app/comp-2/comp-2.component.ts");
+const html_content_comp_1 = __webpack_require__(/*! ../html-content/html-content.comp */ "./src/app/html-content/html-content.comp.ts");
+const cms_services_1 = __webpack_require__(/*! ../services/cms.services */ "./src/app/services/cms.services.ts");
+const CMSAPI_KEY = platform_browser_1.makeStateKey('cmsapi');
+class MainRootComponent {
+    constructor(router, _CMSService, title, resolver, tstate, platformId) {
         this.router = router;
         this._CMSService = _CMSService;
-        this.test = 'test<b>ddd</b>';
-    }
-    MainRootComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        console.log(this.router.url);
-        this._CMSService.loadCMSData(this.router.url)
-            .subscribe(function (data) {
-            _this.compArr = data.data;
+        this.title = title;
+        this.resolver = resolver;
+        this.tstate = tstate;
+        this.currentURL = '';
+        this.isServer = common_1.isPlatformServer(platformId);
+        this.router.events.subscribe((currentRoute) => {
+            if (this.currentURL !== this.router.url) {
+                console.log(this.router.url);
+                this.currentURL = this.router.url;
+            }
         });
-    };
-    return MainRootComponent;
-}());
+    }
+    ngOnInit() {
+        const _that = this;
+        if (this.tstate.hasKey(CMSAPI_KEY)) {
+            // We are in the browser
+            const data = this.tstate.get(CMSAPI_KEY, '');
+            this.render(data);
+        }
+        else {
+            this.callAPI();
+        }
+    }
+    callAPI() {
+        const _that = this;
+        this._CMSService.loadCMSData(this.router.url)
+            .subscribe(data => {
+            this.title.setTitle('Homepage');
+            _that.tstate.set(CMSAPI_KEY, data);
+            _that.render(data);
+        });
+    }
+    render(data) {
+        if (data && data.compArr) {
+            for (let i = 0; i < data.compArr.length; i++) {
+                console.log(data.compArr[i].componenttype);
+                if (data.compArr[i].componenttype === 'Comp1') {
+                    this.createComponent(comp_1_component_1.Comp1, data.compArr[i].data);
+                }
+                if (data.compArr[i].componenttype === 'Comp2') {
+                    this.createComponent(comp_2_component_1.Comp2, data.compArr[i].data);
+                }
+                else {
+                    this.createComponent(html_content_comp_1.HtmlContentComponent, data.compArr[i].data);
+                }
+            }
+        }
+    }
+    createComponent(componenttype, data) {
+        const factory = this.resolver.resolveComponentFactory(componenttype);
+        this.componentRef = this.entry.createComponent(factory);
+        this.componentRef.instance.inputData = data;
+    }
+    destroyComponent() {
+        this.componentRef.destroy();
+    }
+}
 exports.MainRootComponent = MainRootComponent;
 
 
@@ -503,17 +674,16 @@ exports.MainRootComponent = MainRootComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var CMSService = /** @class */ (function () {
-    function CMSService(http) {
+const http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+class CMSService {
+    constructor(http) {
         this.http = http;
     }
-    CMSService.prototype.loadCMSData = function (url) {
-        return this.http.get("" + CMSService.API_URL, { params: { reqURL: url } });
-    };
-    CMSService.API_URL = 'http://localhost:3000/getCMSData';
-    return CMSService;
-}());
+    loadCMSData(url) {
+        return this.http.get(`${CMSService.API_URL}`, { params: { reqURL: url } });
+    }
+}
+CMSService.API_URL = 'http://localhost:3000/getCMSData';
 exports.CMSService = CMSService;
 
 
@@ -552,8 +722,8 @@ exports.environment = {
 Object.defineProperty(exports, "__esModule", { value: true });
 var app_server_module_ngfactory_1 = __webpack_require__(/*! ./app/app.server.module.ngfactory */ "./src/app/app.server.module.ngfactory.js");
 exports.AppServerModuleNgFactory = app_server_module_ngfactory_1.AppServerModuleNgFactory;
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var environment_1 = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+const core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+const environment_1 = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
 if (environment_1.environment.production) {
     core_1.enableProdMode();
 }
@@ -628,6 +798,17 @@ module.exports = require("@angular/common/http");
 /***/ (function(module, exports) {
 
 module.exports = require("@angular/core");
+
+/***/ }),
+
+/***/ "@angular/elements":
+/*!************************************!*\
+  !*** external "@angular/elements" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@angular/elements");
 
 /***/ }),
 
